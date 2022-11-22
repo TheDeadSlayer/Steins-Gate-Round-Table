@@ -1,0 +1,29 @@
+.toptopbar-div {
+  background: rgba(255, 255, 255, 1);
+  border-top-right-radius: 3rem;
+  border-top-left-radius: 3rem;
+  margin: auto;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+}
+.topbar-div {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.createRoom-btn {
+  margin: auto 0 auto 5%;
+  height: 90%;
+  border-radius: 0.5rem;
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  font-family: monospace;
+}
+
+.createRoom-btn:hover {
+  scale: 1.02;
+  transition: 0.5s;
+}

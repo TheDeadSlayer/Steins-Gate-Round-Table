@@ -1,0 +1,137 @@
+@font-face {
+    font-family:'silkR';
+    src: url("../Fonts/SilkRemington-SBold.ttf");
+/* 
+    font-family: 'Garamonb';
+    src: url("Fonts/Garamonb.ttf") */
+}
+
+/* .create-page{
+    background-color:#0A090A;
+    background-image: url("../Images/Background.png");
+    background-size: 70%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+} */
+
+.creatediv{
+    background: rgba(255,255,255,0.15);
+    /* backdrop-filter:blur(2px) ;
+    box-shadow: 0 8px 32px (31,38,135,0.37);
+    border-radius: 3rem;
+    border: 2px solid rgba(255,255,255,0.1); */
+    border-radius: 3rem;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    height: auto;
+    width: 30%;
+    margin: 4% auto auto auto;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1168px) {
+    .creatediv{
+        width: 90%;
+    }
+  }
+
+.registerForm{
+    flex-direction: column;
+    display: grid;
+} 
+
+
+.create-email,.create-userName,.create-pass,.create-confrimpass{
+    font: white;
+    display:block;
+    width:90%;
+    margin:10px auto;
+    padding:15px;
+    padding-left:35px;
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+    border:0;
+}
+.create-email::placeholder,.create-userName::placeholder,.create-pass::placeholder,.create-confrimpass::placeholder{
+    font-family: "silkR";
+}
+.create-userName, .create-email{
+    font-family: "silkR";
+}
+.create-email:focus,.create-userName:focus,.create-pass:focus,.create-confrimpass:focus {
+    color: white;
+}
+
+
+.create-inputs{
+    display: grid;
+    flex-direction: row;
+    align-items: center; 
+}
+
+.create-icons{
+    color: white;
+    min-width: 40px;
+    position: relative;
+    top: 43px;
+    font-size: 20px;
+
+}
+
+.create-logoimg{
+width:40%;
+padding: 90px 60px 30px 60px;
+margin-right: 200px;
+margin-top: -50px;
+
+}
+.text-error{
+    color:red;
+    margin-top: -10px;
+    text-align: left;
+    font-size: 12px;
+
+}
+.registerBtn{
+    /* position: relative;
+    padding: 13px;
+    top: 12px;
+    font-size: 15px;
+    font-family: 'silkR';
+    border-radius: 5px;
+    border: 1px solid black */
+
+    position: relative;
+    padding: 13px;
+    top: 20px;
+    font-size: 15px;
+    font-family: 'silkR';
+    border-radius: 5px;
+    border: 2px solid white;
+    color: white;
+    background-color: rgba(255,255,255,0.15);
+    cursor: pointer;
+  }
+
+.registerBtn:hover{
+    scale: 1.02;
+    transition: 0.5s;
+  }
+
+.signin-Link{
+    color: whitesmoke;
+    margin-top: 32px;
+    text-align: left;
+    font-family:monospace;
+    display: block;
+  }
+
+  .loginLink:visited{
+    color: green;
+  }

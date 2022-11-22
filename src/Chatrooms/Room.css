@@ -1,0 +1,71 @@
+@font-face {
+    font-family:'silkR';
+    src: url("../Fonts/SilkRemington-SBold.ttf");
+/* 
+    font-family: 'Garamonb';
+    src: url("Fonts/Garamonb.ttf") */
+}
+
+.left-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align:text-bottom;
+    padding-top: 15px;
+    
+}
+
+.container-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    height: 90%;
+    margin: 0 auto;
+    
+    font-family: 'silkR';
+}
+
+.bigroom-div{
+    background: rgba(255,255,255,0.5);
+    border-radius: 0.5rem;
+    margin: 10px 20px 10px 20px;
+    width: 75%;
+}
+
+.join-btn{
+   font-family: monospace;
+   margin: auto 0;
+   padding: 10px;
+   border-radius: 0.5rem;
+   border: 2px solid white;
+   background-color: rgba(255,255,255,0.15);
+   cursor: pointer;
+}
+
+.join-btn:hover{
+    scale: 1.02;
+    transition: 0.5s;
+  }
+
+.user-count{
+    display: flex;
+}
+
+.room-icon{
+    position: relative;
+    top: 27%;
+    left:15%;
+    font-size: 20px;
+
+}
+
+
+@media (max-width: 768px) {
+
+    .bigroom-div{
+        width: 90%;
+
+    }
+
+}

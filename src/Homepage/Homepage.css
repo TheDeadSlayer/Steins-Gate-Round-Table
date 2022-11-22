@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "silkR";
+  src: url("../Fonts/SilkRemington-SBold.ttf");
+  /* 
+    font-family: 'Garamonb';
+    src: url("Fonts/Garamonb.ttf") */
+}
+
+.home-div {
+  background-image: url("../Images/Background.png");
+  background-size: repeat;
+  overflow: auto;
+}
+
+.homeback-div {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 3rem;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  margin: 10px 40px auto 50px;
+}
+.img-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quote {
+  color: white;
+  text-align: right;
+  font-family: "silkR";
+  margin-left: 15px;
+  font-size: 30px;
+}
+
+.author {
+  color: white;
+  text-align: right;
+  font-family: "silkR";
+  margin-right: -10px;
+  font-size: 20px;
+}
+
+.epicGif {
+  width: 60%;
+  margin: 30px 20px 30px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border-radius: 3rem;
+}
+
+.heading {
+  color: white;
+  text-align: Left;
+  font-family: monospace;
+  margin-left: 15px;
+  font-size: 40px;
+}
+
+.p1 {
+  color: white;
+  text-align: Left;
+  font-family: monospace;
+  margin-left: 15px;
+  font-size: 30px;
+  font-weight: lighter;
+  width: 70%;
+  justify-content: left;
+}
+
+@media (max-width: 768px) {
+  .img-div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: -50px;
+  }
+
+  .epicGif {
+    scale: 1.3;
+  }
+
+  .heading {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .p1 {
+    font-size: 20px;
+    width: 90%;
+  }
+}

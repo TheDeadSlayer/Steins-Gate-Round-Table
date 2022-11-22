@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "silkR";
+  src: url("../Fonts/SilkRemington-SBold.ttf");
+  /* 
+    font-family: 'Garamonb';
+    src: url("Fonts/Garamonb.ttf") */
+}
+
+/* .login-page{
+    background-color:#0A090A;
+    background-image: url("../Images/Background.png");
+    background-size: 70%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+} */
+
+.logindiv {
+  background: rgba(255, 255, 255, 0.15);
+  /* backdrop-filter:blur(2px) ;
+    box-shadow: 0 8px 32px (31,38,135,0.37);
+    border-radius: 3rem;
+    border: 2px solid rgba(255,255,255,0.1); */
+  border-radius: 3rem;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  height: auto;
+  width: 30%;
+  margin: 4% auto auto auto;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.login-logoimg {
+  width: 80%;
+  padding: 90px 60px 30px 60px;
+}
+
+/* .login-formdiv{
+    
+    display:grid;
+    place-items: center;
+    
+} */
+
+.signinForm {
+  flex-direction: column;
+  display: grid;
+}
+
+.login-userName,
+.login-pass {
+  font: white;
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 15px;
+  padding-left: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 0;
+}
+.login-userName::placeholder,
+.login-pass::placeholder {
+  font-family: "silkR";
+}
+.login-userName {
+  font-family: "silkR";
+}
+.login-userName:focus,
+.login-pass:focus {
+  color: white;
+}
+.login-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login-icons {
+  color: white;
+  min-width: 40px;
+  position: absolute;
+  font-size: 20px;
+}
+
+@media (max-width: 1168px) {
+  .logindiv {
+    width: 90%;
+  }
+}
+
+.loginBtn {
+  /* position: relative;
+    padding: 13px;
+    top: 12px;
+    font-size: 15px;
+    font-family: 'silkR';
+    border-radius: 5px;
+    border: 1px solid black */
+
+  position: relative;
+  padding: 13px;
+  top: 20px;
+  font-size: 15px;
+  font-family: "silkR";
+  border-radius: 5px;
+  border: 2px solid white;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  scale: 1.02;
+  transition: 0.5s;
+}
+
+.registerLink {
+  color: whitesmoke;
+  margin-top: 32px;
+  text-align: left;
+  font-family: monospace;
+  display: block;
+}
+
+.create-Link:visited {
+  color: green;
+}
