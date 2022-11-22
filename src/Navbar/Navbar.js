@@ -24,12 +24,17 @@ const pages = [
   { text: "Merch", link: "" },
   { text: "Amadeus", link: "" },
 ];
-const settings = [{ text: "Profiles", link: "" }, { text: "Account", link: "" }, { text: "Dashboard", link: "" }, { text: "Logout", link: "/Login" }];
+const settings = [
+  { text: "Profiles", link: "" },
+  { text: "Account", link: "" },
+  { text: "Dashboard", link: "" },
+  { text: "Logout", link: "/Login" },
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -38,8 +43,8 @@ function ResponsiveAppBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-   
+  const handleCloseNavMenu = (link) => {
+    if(link) navigate(link);
     setAnchorElNav(null);
   };
 
@@ -106,14 +111,19 @@ function ResponsiveAppBar() {
                 horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={()=>handleCloseNavMenu('')}
               sx={{
                 display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.text} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" onClick={()=>navigate(page.link)}>{page.text}</Typography>
+                <MenuItem key={page.text} onClick={()=>handleCloseNavMenu('')}>
+                  <Typography
+                    textAlign="center"
+                    onClick={() => navigate(page.link)}
+                  >
+                    {page.text}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -139,13 +149,14 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-                <Button
-                  key={page.text}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page.text}
-                </Button>
+              <Button
+                key={page.text}
+                onClick={()=>handleCloseNavMenu(page.link)}
+                sx={{ my: 2, color: "white", display: "block" }}
+                // onFocus={() => navigate(page.link)}
+              >
+                {page.text} 
+              </Button>
             ))}
           </Box>
           <img
