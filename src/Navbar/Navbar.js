@@ -17,6 +17,7 @@ import SteinsGif1 from "../Images/s1.gif";
 import SteinsGif2 from "../Images/s2.gif";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./Navbar.css"
 
 const pages = [
   { text: "Home", link: "/Home" },
@@ -57,13 +58,16 @@ function ResponsiveAppBar() {
       position="static"
       sx={{
         width: "95%",
-        margin: "0 auto",
+        margin: "0 auto 5px auto",
         "background-color": "black",
+        border:"1px solid orange",
         "border-radius": "0.5rem",
+  
+
       }}
     >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Container maxWidth="xl"  >
+        <Toolbar disableGutters >
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
@@ -78,12 +82,15 @@ function ResponsiveAppBar() {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+             
+
             }}
           >
             <img
-              style={{ height: "40px", "margin-left": "20px" }}
+              // style={{ height: "40px", "margin-left": "10px"}}
               src={Steinslogo}
               alt=""
+              className="logo-Img"
             />
           </Typography>
 
@@ -160,9 +167,10 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <img
-            style={{ height: "30px", "margin-right": "20px", float: "left" }}
+            // style={{ height: "30px", "margin-right": "20px", float: "left" }}
             src={SteinsGif2}
             alt=""
+            className="epic-Gif"
           />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

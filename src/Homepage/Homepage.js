@@ -8,10 +8,10 @@ export default function Homepage() {
   return (
     <div className='home-div'>
         <Navbar></Navbar>
-        <div className='homeback-div'>
+        {/* <div className='homeback-div'> */}
             <div className='img-div'>
                 <img src={SteinsGateEpic} alt="" className='epicGif' />
-                <p className='quote'>"ElPSY KONGRO" <br></br> <span className='author'>-Hououin Kyouma</span></p>
+                <p className='quote'>"ElPSY KONGROO" <br></br> <span className='author'>-Hououin Kyouma</span></p>
                 <blockquote className='quote'></blockquote>
             </div>
 
@@ -24,7 +24,7 @@ export default function Homepage() {
 
             </div>
 
-        </div>
+        {/* </div> */}
     </div>
   )
 }

@@ -1,0 +1,27 @@
+.logo-Img{
+    height: 40px;
+    margin-left: 10px;
+}
+
+.epic-Gif{
+    height: 30px;
+    margin-right: 20px;
+    float: left ;
+}
+@media (max-width: 450px) 
+{
+    .logo-Img{
+        scale:0.3;
+
+    }
+    .epic-Gif{
+        display: none;
+    }
+
+    .css-1lfs2tq-MuiTypography-root {
+        scale: 0.5em;;
+        margin-left: 20px !important;
+    }
+
+
+}

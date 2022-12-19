@@ -35,11 +35,7 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 1168px) {
-    .creatediv{
-        width: 90%;
-    }
-  }
+
 
 .registerForm{
     flex-direction: column;
@@ -89,6 +85,7 @@ width:40%;
 padding: 90px 60px 30px 60px;
 margin-right: 200px;
 margin-top: -50px;
+margin-left: 20px;
 
 }
 .text-error{
@@ -135,3 +132,26 @@ margin-top: -50px;
   .loginLink:visited{
     color: green;
   }
+
+  @media (max-width: 1168px) {
+    .creatediv{
+        width: 90%;
+    }
+    .create-inputs{
+        width:80%;
+        margin:auto 10px auto 10px ;
+    }
+    .registerBtn{
+        width:90%;
+        margin:auto 10px auto 10px ;
+    }
+
+    .signin-Link{
+        width:90%;
+        margin-left: 20px;
+    }
+    .create-logoimg{
+        margin-left: 70px;
+    }
+  }
+
