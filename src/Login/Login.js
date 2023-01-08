@@ -10,12 +10,14 @@ import { FiLock } from "react-icons/fi";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../fbconfig';
 
 const schema = yup
   .object({
-    username: yup
+    email: yup
     .string()
-    .required('*Username is required'),
+    .required('*Email is required'),
 
     password: yup
     .string()
@@ -40,18 +42,31 @@ export default function Login() {
         {/*<img src={DivergeGif} alt="My Logo" className="gif"/>*/}
 
         <div className="login-formdiv">
-          <form action="" className="signinForm" method="post" onSubmit={handleSubmit}>
+          <form className="signinForm" onSubmit={handleSubmit(({ email, password }) => {
+            signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // user log in successful
+                navigate('/home');
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert('Incorrect email or password');
+              });
+          })}>
             <div className="login-inputs">
               {/*<label htmlFor="" className='lbl'>Username: </label>*/}
               <FaRegUser className="login-icons" />
               <input
-                type="text"
-                name="username"
+                type="email"
+                name="email"
                 className="login-userName"
-                placeholder="Username"
-                {...register('username')}
+                placeholder="Email"
+                {...register('email')}
               />
-              <p className="text-error2">{errors?.username?.message}</p>
+              <p className="text-error2">{errors?.email?.message}</p>
               
             </div>
 
@@ -69,7 +84,7 @@ export default function Login() {
               
             </div>
 
-            <button className="loginBtn" onClick={() => navigate("/Home")}>
+            <button className="loginBtn" type="submit">
               Login
             </button>
           </form>
@@ -77,7 +92,7 @@ export default function Login() {
             Not a Labmem?{" "}
             <Link to="/Create" className="create-Link">
               Register
-            </Link>{" "}
+            </Link>
           </span>
         </div>
       </div>

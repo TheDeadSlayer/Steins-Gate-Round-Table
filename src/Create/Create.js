@@ -9,7 +9,7 @@ import { FiLock } from 'react-icons/fi';
 import {MdOutlineEmail} from 'react-icons/md';
 import {TiTickOutline} from 'react-icons/ti';
 import * as yup from 'yup';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../fbconfig';
 
 const schema = yup
@@ -69,7 +69,6 @@ export default function Create() {
                 const errorMessage = error.message;
                 alert('Failed to sign up user');
               });
-  
           })}>
 
                 <div className='create-inputs'>
