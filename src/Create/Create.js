@@ -11,6 +11,8 @@ import {TiTickOutline} from 'react-icons/ti';
 import * as yup from 'yup';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../fbconfig';
+import { AuthenticatedUser } from '../context/authState';
+import { useNavigate } from "react-router-dom";
 
 const schema = yup
   .object({
@@ -40,6 +42,9 @@ const schema = yup
   .required();
 
 export default function Create() {
+  const { setUser } = React.useContext(AuthenticatedUser);
+  const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -62,7 +67,13 @@ export default function Create() {
               .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                alert('User Signed Up');
+                setUser({
+                  uid: user.uid,
+                  name: "Lab Member",
+                  loggedIn: true,
+                });
+
+                navigate('/home');
               })
               .catch((error) => {
                 const errorCode = error.code;

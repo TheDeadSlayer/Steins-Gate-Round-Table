@@ -12,6 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../fbconfig';
+import { AuthenticatedUser } from "../context/authState";
 
 const schema = yup
   .object({
@@ -26,6 +27,8 @@ const schema = yup
   })
   .required();
 export default function Login() {
+  const { setUser } = React.useContext(AuthenticatedUser);
+
   const navigate = useNavigate();
   const {
     register,
@@ -48,6 +51,12 @@ export default function Login() {
                 // Signed in 
                 const user = userCredential.user;
                 // user log in successful
+                setUser({
+                  uid: user.uid,
+                  name: "Lab Member",
+                  loggedIn: true,
+                });
+
                 navigate('/home');
               })
               .catch((error) => {
