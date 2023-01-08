@@ -9,7 +9,8 @@ import { FiLock } from 'react-icons/fi';
 import {MdOutlineEmail} from 'react-icons/md';
 import {TiTickOutline} from 'react-icons/ti';
 import * as yup from 'yup';
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../fbconfig';
 
 const schema = yup
   .object({
@@ -56,7 +57,20 @@ export default function Create() {
        {/*<img src={DivergeGif} alt="My Logo" className="gif"/>*/}
 
         <div className='create-formdiv'>
-          <form action="" method='post' className='registerForm' onSubmit={handleSubmit}>
+          <form action="" method='post' className='registerForm' onSubmit={handleSubmit(({email, password}) => {
+            createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                alert('User Signed Up');
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert('Failed to sign up user');
+              });
+  
+          })}>
 
                 <div className='create-inputs'>
                   {/*<label htmlFor="" className='lbl'>Username: </label>*/}
