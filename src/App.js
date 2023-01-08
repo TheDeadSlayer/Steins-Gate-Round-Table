@@ -8,7 +8,7 @@ import Chatrooms from './Chatrooms/Chatrooms'
 import { AuthenticatedUser } from './context/authState';
 import { useContext } from 'react';
 
-import { BrowserRouter, Route, Routes, Redirect } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 function App() {
   const { isAuthenticated } = useContext(AuthenticatedUser);
