@@ -18,6 +18,7 @@ import SteinsGif2 from "../Images/s2.gif";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css"
+import {AuthenticatedUser} from "../context/authState"
 
 const pages = [
   { text: "Home", link: "/Home" },
@@ -35,6 +36,7 @@ const settings = [
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { logOutUser } = React.useContext(AuthenticatedUser);
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
@@ -196,7 +198,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting.text} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" onClick={()=> navigate(setting.link)}>{setting.text}</Typography>
+                  <Typography textAlign="center" onClick={()=>{if(setting.text=="Logout"){logOutUser()}}}>{setting.text}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -207,3 +209,4 @@ function ResponsiveAppBar() {
   );
 }
 export default ResponsiveAppBar;
+
