@@ -46,7 +46,7 @@ function Chatroom() {
     <>
       <Navbar />
           <div id="chatroom-container">
-              <div id="messages-container">
+              <div id="messages-container" className="scrollable">
                   {data.map((item) => (
                         <div key={item} id="message-box">
                         <Avatar alt="Remy Sharp" src="https://cdn.discordapp.com/attachments/525396976531931156/1061842790226600047/893bfbf8-897c-4a8f-9e83-07f88eeb12e8.jpg" />
