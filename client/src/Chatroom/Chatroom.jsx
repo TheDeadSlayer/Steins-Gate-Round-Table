@@ -49,7 +49,7 @@ function Chatroom() {
               <div id="messages-container">
                   {data.map((item) => (
                         <div key={item} id="message-box">
-                        <Avatar alt="Remy Sharp" src="https://media.licdn.com/dms/image/D4D03AQHLu-BOm6iilQ/profile-displayphoto-shrink_800_800/0/1669032927505?e=1678924800&v=beta&t=Y4QLXPdfLY2t0zO8q5lXbPcE5jGDES1HVeYFWyL5_pI" />
+                        <Avatar alt="Remy Sharp" src="https://cdn.discordapp.com/attachments/525396976531931156/1061842790226600047/893bfbf8-897c-4a8f-9e83-07f88eeb12e8.jpg" />
                         <div id="message">
                             {item}
                         </div>
