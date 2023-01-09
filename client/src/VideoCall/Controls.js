@@ -7,6 +7,7 @@ import VideocamIcon from "@mui/icons-material/Videocam";
 import VideocamOffIcon from "@mui/icons-material/VideocamOff";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import {useNavigate} from "react-router-dom"
+import { withRouter } from 'react-router'
 
 export default function Controls(props) {
   const client = useClient();
@@ -83,7 +84,7 @@ export default function Controls(props) {
                       }}
           variant="contained"
         //   color="default"
-          onClick={() => {leaveChannel()}}
+          onClick={() => {leaveChannel(); navigate(-1)}}
         >
           Leave
           <ExitToAppIcon />

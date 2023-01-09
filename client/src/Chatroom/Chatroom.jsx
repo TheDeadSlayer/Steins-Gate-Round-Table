@@ -76,7 +76,7 @@ function Chatroom() {
                   }} color="secondary" />
                   <div>
                   <Button  sx={{
-                      height: '56px',
+                      height: '60%',
                       marginTop: '12px',
                           border: "2px solid #0D1324",
                           marginLeft:'5px',
@@ -86,7 +86,7 @@ function Chatroom() {
                           type="submit"
                           endIcon={<Send />} >Send</Button>
                     <Button color='success'sx={{
-                      height: '56px',
+                      height: '60%',
                       marginTop: '12px',
                           border: "2px solid #0D1324",
                           marginLeft:'5px',
