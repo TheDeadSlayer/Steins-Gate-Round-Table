@@ -5,10 +5,17 @@ import './Chatroom.css'
 import { db } from "../fbconfig";
 import { useParams } from "react-router-dom";
 import { doc, getDoc, onSnapshot, collection, updateDoc, arrayUnion } from "firebase/firestore";
-
+import { Send,Call,VideoCall} from '@mui/icons-material';
+import VideoCall1 from "../VideoCall/VideoCall"
+import {useState} from "react"
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Chatroom() {
     const [data, setData] = React.useState([]);
+    const [inCall,setInCall]= useState(false)
+    const navigate = useNavigate();
     let { id: roomId } = useParams();
+
 
     React.useEffect(() => {
         if (data.length === 0) {
@@ -58,24 +65,37 @@ function Chatroom() {
               </div>
               <form id="send-message" onSubmit={sendMessage}>
                   <TextField id="outlined-basic" label="Outlined" variant="outlined" sx={{
-                      width: '80%',
+                      width: '83%',
                       marginTop: '12px',
                       display: 'flex',
                       justifyContent: 'center',
                       alignSelf: 'center',
                       background: '#202124',
                       border: "2px solid #0D1324",
-                  }} />
+                      input: { color: 'white' }
+                  }} color="secondary" />
                   <div>
-                  <Button sx={{
+                  <Button  sx={{
                       height: '56px',
                       marginTop: '12px',
                           border: "2px solid #0D1324",
-                          marginLeft:'5px'
+                          marginLeft:'5px',
+                          background:'black'
                       }}
                           variant="outlined"
                           type="submit"
-                      >Send</Button>   
+                          endIcon={<Send />} >Send</Button>
+                    <Button color='success'sx={{
+                      height: '56px',
+                      marginTop: '12px',
+                          border: "2px solid #0D1324",
+                          marginLeft:'5px',
+                          background:'black'
+                      }}
+                          variant="outlined"
+                          onClick={()=> navigate("/video")}
+                          startIcon={<VideoCall />}>Start Call</Button> 
+                          {inCall? <VideoCall1 setIncCall={setInCall} />  : "Waiting"} 
                   </div>
               </form>
           </div>
