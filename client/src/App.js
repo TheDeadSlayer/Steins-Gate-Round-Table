@@ -9,6 +9,7 @@ import { AuthenticatedUser } from './context/authState';
 import { useContext } from 'react';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Chatroom from './Chatroom/Chatroom';
 
 function App() {
   const { isAuthenticated } = useContext(AuthenticatedUser);
@@ -17,6 +18,7 @@ function App() {
     <div className="App-page">
 
       <BrowserRouter>
+        
         <Routes>
           {isAuthenticated ? 
             <>
@@ -26,6 +28,7 @@ function App() {
               <Route path="/Create" element={ <Create/>} />
               <Route path="/Home" element={ <Home/>} />
               <Route path="/Chatrooms" element={ <Chatrooms/>} />
+              <Route path="/chatrooms/:id" element={ <Chatroom/>} />
             </>
             :
             <>

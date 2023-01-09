@@ -4,9 +4,9 @@ export const AuthenticatedUserProvider = (props) => {
   const [user, setUser] = React.useState({
     uid: 123,
     name: "Guest",
-    loggedIn: false,
+    loggedIn: true,
   });
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false); 
+  const [isAuthenticated, setIsAuthenticated] = React.useState(true); 
   
   const logOutUser = async () => {
     try {

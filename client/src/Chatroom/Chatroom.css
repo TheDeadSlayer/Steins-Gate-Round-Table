@@ -1,0 +1,35 @@
+#messages-container{
+    border: 2px solid #0D1324;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 6rem;
+    min-height: 500px;
+    border-radius: 13px;
+    background: #202124;
+}
+
+#send-message {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#message-box {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    gap: 12px;
+    padding: 12px;
+    margin: 21px auto;
+    border-radius: 12px;
+    background: #0D1324;
+    font-family: "silkR";
+}
+
+#message {
+    color: white;
+    display: flex;
+    align-items: center;
+}

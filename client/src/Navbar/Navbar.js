@@ -64,8 +64,6 @@ function ResponsiveAppBar() {
         "background-color": "black",
         border:"1px solid orange",
         "border-radius": "0.5rem",
-  
-
       }}
     >
       <Container maxWidth="xl"  >
