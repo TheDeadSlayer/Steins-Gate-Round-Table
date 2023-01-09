@@ -64,8 +64,8 @@ function Chatroom() {
                   ))}
               </div>
               <form id="send-message" onSubmit={sendMessage}>
-                  <TextField id="outlined-basic" label="Outlined" variant="outlined" sx={{
-                      width: '83%',
+                  <TextField className="msgtext-box" id="outlined-basic" label="Outlined" variant="outlined" sx={{
+                      width: '80%',
                       marginTop: '12px',
                       display: 'flex',
                       justifyContent: 'center',
@@ -75,9 +75,10 @@ function Chatroom() {
                       input: { color: 'white' }
                   }} color="secondary" />
                   <div>
-                  <Button  sx={{
-                      height: '60%',
+                  <Button className="send-btn"   sx={{
+                      height: '70%',
                       marginTop: '12px',
+                      marginRight:'20px',
                           border: "2px solid #0D1324",
                           marginLeft:'5px',
                           background:'black'
@@ -85,16 +86,18 @@ function Chatroom() {
                           variant="outlined"
                           type="submit"
                           endIcon={<Send />} >Send</Button>
-                    <Button color='success'sx={{
-                      height: '60%',
+                    <Button className="vid-btn" color='success'sx={{
+                      height: '70%',
+                      
                       marginTop: '12px',
+                      marginRight:"41px",
                           border: "2px solid #0D1324",
                           marginLeft:'5px',
                           background:'black'
                       }}
                           variant="outlined"
                           onClick={()=> navigate("/video")}
-                          startIcon={<VideoCall />}>Start Call</Button> 
+                          startIcon={<VideoCall />}>Call</Button> 
                           {inCall? <VideoCall1 setIncCall={setInCall} />:"."} 
                   </div>
               </form>
