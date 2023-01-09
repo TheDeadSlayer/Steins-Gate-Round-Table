@@ -95,7 +95,7 @@ function Chatroom() {
                           variant="outlined"
                           onClick={()=> navigate("/video")}
                           startIcon={<VideoCall />}>Start Call</Button> 
-                          {inCall? <VideoCall1 setIncCall={setInCall} />  : "Waiting"} 
+                          {inCall? <VideoCall1 setIncCall={setInCall} />:"."} 
                   </div>
               </form>
           </div>
