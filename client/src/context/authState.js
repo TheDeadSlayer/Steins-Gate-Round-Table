@@ -4,13 +4,17 @@ export const AuthenticatedUserProvider = (props) => {
   const [user, setUser] = React.useState({
     uid: 123,
     name: "Guest",
-    loggedIn: true,
+    loggedIn: false,
   });
   const [isAuthenticated, setIsAuthenticated] = React.useState(true); 
   
   const logOutUser = async () => {
     try {
-    localStorage.clear()
+      localStorage.setItem("savedUser", JSON.stringify({
+        uid: 123,
+        name: "Guest",
+        loggedIn: false,        
+      }))
       setUser({
         uid: 123,
         name: "Guest",
