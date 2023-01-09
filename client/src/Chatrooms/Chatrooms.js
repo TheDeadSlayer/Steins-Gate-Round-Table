@@ -10,20 +10,12 @@ import generateUID from "../utils/generateUID";
 export default function Chatrooms() {
   const [OnlineUsers, setOnlineUsers] = useState(0);
   const [list, setList] = useState([
-    {id: generateUID(), name: "Room 1", count: 2 },
-    {id: generateUID(), name: "Room 2", count: 2 },
-    {id: generateUID(), name: "Room 3", count: 2 },
-    {id: generateUID(), name: "Room 4", count: 2 },
-    {id: generateUID(), name: "Room 5", count: 2 },
-    {id: generateUID(), name: "Room 6", count: 2 },
-    {id: generateUID(), name: "Room 7", count: 2 },
-    {id: generateUID(), name: "Room 8", count: 2 },
-    {id: generateUID(), name: "Room 9", count: 2 },
-    {id: generateUID(), name: "Room 10", count: 2 },
-    {id: generateUID(), name: "Room 11", count: 2 },
-    {id: generateUID(), name: "Room 12", count: 2 },
-    {id: generateUID(), name: "Room 13", count: 2 },
-    {id: generateUID(), name: "Room 14", count: 2 },
+    {id: 'abc', name: "Room 1", count: 2 },
+    {id: 'abc1', name: "Room 2", count: 2 },
+    {id: 'abc2', name: "Room 3", count: 2 },
+    {id: 'abc3', name: "Room 4", count: 2 },
+    {id: 'abc4', name: "Room 5", count: 2 },
+    {id: 'abc5', name: "Room 6", count: 2 },
   ]);
   useEffect(() => {
     setOnlineUsers(1)

@@ -2,45 +2,59 @@ import { Avatar, Button, TextField } from "@mui/material";
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import './Chatroom.css'
-
+import { db } from "../fbconfig";
+import { useParams } from "react-router-dom";
+import { doc, getDoc, onSnapshot, collection, updateDoc, arrayUnion } from "firebase/firestore";
 
 function Chatroom() {
+    const [data, setData] = React.useState([]);
+    let { id: roomId } = useParams();
+
+    React.useEffect(() => {
+        if (data.length === 0) {
+          // for first time loading
+          updateChat();
+        }
+        const unsubscribe = onSnapshot(collection(db, "Chatrooms"), () => {
+            updateChat();
+          });
+
+        return () => {
+          unsubscribe();
+        };
+    }, []);
+
+    const updateChat = async () => {
+        try {
+            const docRef = doc(db, "Chatrooms", roomId);
+            const docSnap = await getDoc(docRef);
+            setData(docSnap.data().messages)
+        } catch(error) {
+            console.log(error)
+        }
+      };
     const sendMessage = (e) => {
+        e.preventDefault();
         const message = e.target.elements[0].value;
+        const docRef = doc(db, "Chatrooms", roomId);
+        updateDoc(docRef, {
+            messages: arrayUnion(message)
+        });
+        e.target.elements[0].value = '';
     }
   return (
     <>
       <Navbar />
           <div id="chatroom-container">
               <div id="messages-container">
-                  <div id="message-box">
-                      <Avatar alt="Remy Sharp" src="https://media.licdn.com/dms/image/D4D03AQHLu-BOm6iilQ/profile-displayphoto-shrink_800_800/0/1669032927505?e=1678924800&v=beta&t=Y4QLXPdfLY2t0zO8q5lXbPcE5jGDES1HVeYFWyL5_pI" />
-                      <div id="message">
-                          I am 
-                      </div>
-                      {/*  */}
-                  </div>
-                  <div id="message-box">
-                      <Avatar alt="Remy Sharp" src="https://media.licdn.com/dms/image/D4D03AQHLu-BOm6iilQ/profile-displayphoto-shrink_800_800/0/1669032927505?e=1678924800&v=beta&t=Y4QLXPdfLY2t0zO8q5lXbPcE5jGDES1HVeYFWyL5_pI" />
-                      <div id="message">
-                          I am 
-                      </div>
-                      {/*  */}
-                  </div>
-                  <div id="message-box">
-                      <Avatar alt="Remy Sharp" src="https://media.licdn.com/dms/image/D4D03AQHLu-BOm6iilQ/profile-displayphoto-shrink_800_800/0/1669032927505?e=1678924800&v=beta&t=Y4QLXPdfLY2t0zO8q5lXbPcE5jGDES1HVeYFWyL5_pI" />
-                      <div id="message">
-                          I am 
-                      </div>
-                      {/*  */}
-                  </div>
-                  <div id="message-box">
-                      <Avatar alt="Remy Sharp" src="https://media.licdn.com/dms/image/D4D03AQHLu-BOm6iilQ/profile-displayphoto-shrink_800_800/0/1669032927505?e=1678924800&v=beta&t=Y4QLXPdfLY2t0zO8q5lXbPcE5jGDES1HVeYFWyL5_pI" />
-                      <div id="message">
-                          I am 
-                      </div>
-                      {/*  */}
-                  </div>
+                  {data.map((item) => (
+                        <div key={item} id="message-box">
+                        <Avatar alt="Remy Sharp" src="https://media.licdn.com/dms/image/D4D03AQHLu-BOm6iilQ/profile-displayphoto-shrink_800_800/0/1669032927505?e=1678924800&v=beta&t=Y4QLXPdfLY2t0zO8q5lXbPcE5jGDES1HVeYFWyL5_pI" />
+                        <div id="message">
+                            {item}
+                        </div>
+                        </div>  
+                  ))}
               </div>
               <form id="send-message" onSubmit={sendMessage}>
                   <TextField id="outlined-basic" label="Outlined" variant="outlined" sx={{

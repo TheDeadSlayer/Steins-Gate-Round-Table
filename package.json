@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/TheDeadSlayer/Steins-Gate-Round-Table#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "socket.io": "^4.5.4"
   }
 }
