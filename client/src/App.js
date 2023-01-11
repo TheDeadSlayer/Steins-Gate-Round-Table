@@ -25,7 +25,7 @@ function App() {
           {isAuthenticated ? 
             <>
               {/* protected routes */}
-              <Route path='/' element={<Home/>}/>
+              <Route path='/' element={<Login/>}/>
               <Route path="/Login" element={ <Login/>} />
               <Route path="/Create" element={ <Create/>} />
               <Route path="/Home" element={ <Home/>} />
